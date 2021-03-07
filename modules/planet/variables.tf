@@ -30,6 +30,16 @@ variable "network_interface_count" {
 }
 
 // Security Group
+variable "nginx_port" {
+  type = number
+  default = 80
+}
+
+variable "nginx_whitelist_cidrs" {
+  type = list(string)
+  default = null
+}
+
 variable "app_port" {
   type = number
   default = 80

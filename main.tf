@@ -12,6 +12,7 @@ module "earth" {
   key_name                = var.key_name
   icmp_whitelist_cidrs    = [var.mars_vpc_cidr, var.venus_vpc_cidr]
   rdp_whitelist_cidrs     = [var.rdp_whitelist_cidr]
+  nginx_whitelist_cidrs   = [var.mars_vpc_cidr, var.venus_vpc_cidr]
 
   tags = {
     Environment = var.environment
@@ -32,6 +33,7 @@ module "mars" {
   key_name                = var.key_name
   icmp_whitelist_cidrs    = [var.earth_vpc_cidr, var.venus_vpc_cidr]
   rdp_whitelist_cidrs     = [var.rdp_whitelist_cidr]
+  nginx_whitelist_cidrs   = [var.earth_vpc_cidr, var.venus_vpc_cidr]
 
   tags = {
     Environment = var.environment
@@ -52,6 +54,7 @@ module "venus" {
   key_name                = var.key_name
   icmp_whitelist_cidrs    = [var.earth_vpc_cidr, var.mars_vpc_cidr]
   rdp_whitelist_cidrs     = [var.rdp_whitelist_cidr]
+  nginx_whitelist_cidrs   = [var.earth_vpc_cidr, var.mars_vpc_cidr]
 
   tags = {
     Environment = var.environment
