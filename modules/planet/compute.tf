@@ -105,6 +105,7 @@ module "compute_linux" {
   vpc_security_group_ids = [aws_security_group.compute_security_group.id,aws_security_group.linux_security_group.id]
   iam_instance_profile   = module.ssm_instance_profile.instance_profile_name
   user_data              = file("${path.module}/templates/init.sh")
+  eni_count              = var.network_interface_count
 
   tags = merge(
     var.tags,
